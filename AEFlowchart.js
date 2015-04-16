@@ -42,7 +42,7 @@ function connectSteps(drawConnections)
 	}
 }
 
-/*	style the label as defined in AELabelSettings.js	*/
+/*	style the label as defined in AESettings.js	*/
 function styleStepTitle(label, fontColor)
 {
 	// get current label position
