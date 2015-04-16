@@ -5,7 +5,7 @@
 @import 'AEFlowchart.js'
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep("StartEnd", startEndShape);
+createStep("StartEnd", startEndShape, startEndFontColor);
 
 /*  draw start-end rounded rectangle shape for given label  */
 function startEndShape(label)

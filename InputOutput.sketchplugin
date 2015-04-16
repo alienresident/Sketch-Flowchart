@@ -5,7 +5,7 @@
 @import 'AEFlowchart.js'
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep("InputOutput", inputOutputShape);
+createStep("InputOutput", inputOutputShape, inputOutputFontColor);
 
 /*  draw input-output parallelogram shape for given label  */
 function inputOutputShape(label)
