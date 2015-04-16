@@ -7,7 +7,7 @@
 /*	this is the method which should be called from AEFlowchart plugins
 		- elementName should be string which will be used for items naming
 		- drawShape should be method which returns some shape for the given label	*/
-function createStep(stepName, drawShape)
+function createStep(stepName, drawShape, fontColor)
 {
 	if([selection count] == 0) {
 		[doc showMessage:"Oops, you have to select some text layer"];
@@ -20,7 +20,7 @@ function createStep(stepName, drawShape)
 			// create flowchart shapes from text
 			if ([label class] === MSTextLayer) {
 
-				styleStepTitle(label);
+				styleStepTitle(label, fontColor);
 				var shape = drawShape(label);
 				groupStepLayers(stepName, label, shape);
 
@@ -43,7 +43,7 @@ function connectSteps(drawConnections)
 }
 
 /*	style the label as defined in AELabelSettings.js	*/
-function styleStepTitle(label)
+function styleStepTitle(label, fontColor)
 {
 	// get current label position
 	var currentFrame = [label frame];
@@ -53,7 +53,7 @@ function styleStepTitle(label)
 	// label settings
 	[label setFontPostscriptName:labelFontName];
 	[label setFontSize:labelFontSize];
-	[label setTextColor:[MSColor colorWithSVGString:labelFontColor]];
+	[label setTextColor:[MSColor colorWithSVGString:fontColor]];
 	[label setTextAlignment:2]; // center
 
 	// restore label position
