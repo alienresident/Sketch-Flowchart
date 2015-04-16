@@ -34,12 +34,12 @@ function processShape(label)
   // add gradient fill
   [shapeFill setFillType: 1];
   var gradient = [shapeFill gradient];
-  [gradient setColor:[MSColor colorWithSVGString:"#1AD6FD"] atIndex:0];
-  [gradient setColor:[MSColor colorWithSVGString:"#1D62F0"] atIndex:1];
 
   // add default inner shadow
   var innerShadows = [shapeStyle innerShadows];
   if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  [gradient setColor:[MSColor colorWithSVGString:processColorStart] atIndex:0];
+  [gradient setColor:[MSColor colorWithSVGString:processColorEnd] atIndex:1];
 
   return shapeGroup;
 }

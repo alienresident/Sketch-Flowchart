@@ -45,12 +45,12 @@ function inputOutputShape(label)
   // add gradient fill
   [shapeFill setFillType: 1];
   var gradient = [shapeFill gradient];
-  [gradient setColor:[MSColor colorWithSVGString:"#B4EC51"] atIndex:0];
-  [gradient setColor:[MSColor colorWithSVGString:"#429321"] atIndex:1];
 
   // add default inner shadow
   var innerShadows = [shapeStyle innerShadows];
   if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  [gradient setColor:[MSColor colorWithSVGString:inputOutputColorStart] atIndex:0];
+  [gradient setColor:[MSColor colorWithSVGString:inputOutputColorEnd] atIndex:1];
 
   return shape;
 }
