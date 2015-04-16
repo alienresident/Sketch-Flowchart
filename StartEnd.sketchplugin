@@ -37,9 +37,11 @@ function startEndShape(label)
   [gradient setColor:[MSColor colorWithSVGString:startEndColorStart] atIndex:0];
   [gradient setColor:[MSColor colorWithSVGString:startEndColorEnd] atIndex:1];
 
-  // add default inner shadow
-  var innerShadows = [shapeStyle innerShadows];
-  if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  // if shadow is true use default inner shadow
+  if (startEndInnerShadows) {
+    var innerShadows = [shapeStyle innerShadows];
+    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  }
 
   // round corners (calculate pill radius)
   var radius;

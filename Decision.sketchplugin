@@ -47,12 +47,14 @@ function decisionShape(label)
   // add gradient fill
   [shapeFill setFillType: 1];
   var gradient = [shapeFill gradient];
-
-  // add default inner shadow
-  var innerShadows = [shapeStyle innerShadows];
-  if([innerShadows count] <= 0) [innerShadows addNewStylePart];
   [gradient setColor:[MSColor colorWithSVGString:decisionColorStart] atIndex:0];
   [gradient setColor:[MSColor colorWithSVGString:decisionColorEnd] atIndex:1];
+
+  // if shadow is true use default inner shadow
+  if (decisionInnerShadows) {
+    var innerShadows = [shapeStyle innerShadows];
+    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  }
 
   return shape;
 }
