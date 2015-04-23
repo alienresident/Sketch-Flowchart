@@ -58,7 +58,7 @@ function internalStorageShape(label)
   // set Frame
   var horizBoxFrame = [horizBox frame];
   [horizBoxFrame setX:0];
-  [horizBoxFrame setY:10];
+  [horizBoxFrame setY:5]; // should be 10 but it's offset for some reason
   [horizBoxFrame setWidth:[subGroupFrame width]];
   [horizBoxFrame setHeight: 1];
   [horizBoxGroup setFrame: horizBoxFrame];
@@ -80,7 +80,7 @@ function internalStorageShape(label)
 
   // set Frame
   var vertBoxFrame = [vertBox frame];
-  [vertBoxFrame setX:10];
+  [vertBoxFrame setX:5]; // should be 10 but it's offset for some reason
   [vertBoxFrame setY:0];
   [vertBoxFrame setWidth:1];
   [vertBoxFrame setHeight:[subGroupFrame height]];
