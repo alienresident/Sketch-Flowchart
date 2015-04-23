@@ -92,4 +92,7 @@ function groupStepLayers(stepName, label, shape)
 
 	// refresh group size
 	[newGroup resizeRoot:0];
+
+	// select new group 
+	[newGroup setIsSelected:true];
 }
