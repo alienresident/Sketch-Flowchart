@@ -1,0 +1,58 @@
+// Sketch Plugin: AEFlowchart - ManualInput (ctrl shift m)
+// Source: github.com/tadija/AEFlowchart
+// Version: 1.0
+
+#import 'AEFlowchart.js'
+
+/*  call AEFlowchart main function with custom name and shape function  */
+createStep("ManualInput", manualInputShape, manualInputFontColor);
+
+/*  draw manualInput shape for given label  */
+function manualInputShape(label)
+{
+  // get label size
+  var labelFrame = [label frame];
+  var labelWidth = [labelFrame width];
+  var labelHeight = [labelFrame height];
+
+  // set shape padding
+  var minPadding = 12.0;
+  var maxPadding = 24.0;
+  // horizontal
+  var shapeHorizontalPadding = labelWidth * 0.3;
+  if(shapeHorizontalPadding < minPadding) shapeHorizontalPadding = minPadding;
+  if(shapeHorizontalPadding > maxPadding) shapeHorizontalPadding = maxPadding;
+  // vertical
+  var shapeVerticalPadding = 12.0;
+
+  // create shape path
+  var shapePath = [NSBezierPath bezierPath];
+  [shapePath moveToPoint:CGPointMake([labelFrame minX] - shapeHorizontalPadding, [labelFrame minY] - shapeVerticalPadding)];
+  [shapePath lineToPoint:CGPointMake([labelFrame maxX] + shapeHorizontalPadding, [labelFrame minY] - shapeVerticalPadding * 3)];
+  [shapePath lineToPoint:CGPointMake([labelFrame maxX] + shapeHorizontalPadding, [labelFrame maxY] + shapeVerticalPadding * 2))];
+  [shapePath lineToPoint:CGPointMake([labelFrame minX] - shapeHorizontalPadding, [labelFrame maxY] + shapeVerticalPadding * 2))];
+  [shapePath closePath];
+
+  // create shape
+  var shape = [MSShapeGroup shapeWithBezierPath: shapePath];
+
+  // set style
+  var shapeStyle = [shape style];
+  var fills = [shapeStyle fills];
+  if([fills count] <= 0) [fills addNewStylePart];
+  var shapeFill = [shapeStyle fill];
+
+  // add gradient fill
+  [shapeFill setFillType: 1];
+  var gradient = [shapeFill gradient];
+  [gradient setColor:[MSColor colorWithSVGString:manualInputColorStart] atIndex:0];
+  [gradient setColor:[MSColor colorWithSVGString:manualInputColorEnd] atIndex:1];
+
+  // if shadow is true use default inner shadow
+  if (manualInputInnerShadows) {
+    var innerShadows = [shapeStyle innerShadows];
+    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  }
+
+  return shape;
+}
