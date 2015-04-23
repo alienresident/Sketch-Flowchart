@@ -23,6 +23,19 @@ var inputOutputColorEnd = inputOutputColorStart;
 var inputOutputInnerShadows = false;
 var inputOutputFontColor = labelFontColor;
 
+// internalStorage Variables
+var internalStorageColorStart = "#FF552A";
+var internalStorageColorEnd = internalStorageColorStart;
+var internalStorageInnerShadows = false;
+var internalStorageFontColor = labelFontColor;
+var internalStorageFillColor = "#FFFFFF";
+
+// manualInput Variables
+var manualInputColorStart = "#666766";
+var manualInputColorEnd = manualInputColorStart;
+var manualInputInnerShadows = false;
+var manualInputFontColor = labelFontColor;
+
 // LabelLine Variables
 var labelLineColorStart = "#FFFFFF";
 var labelLineColorEnd = labelLineColorStart; // 'Flat' Gradient
