@@ -18,8 +18,8 @@ var decisionInnerShadows = false;
 var decisionFontColor = labelFontColor;
 
 // inputOutput Variables
-var inputOutputColorStart = "#B4EC51";
-var inputOutputColorEnd = "#429321";
+var inputOutputColorStart = "#1C69D4";
+var inputOutputColorEnd = inputOutputColorStart;
 var inputOutputInnerShadows = false;
 var inputOutputFontColor = labelFontColor;
 
