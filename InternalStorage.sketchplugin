@@ -1,0 +1,106 @@
+// Sketch Plugin: AEFlowchart - InternalStorage (ctrl shift i)
+// Source: github.com/tadija/AEFlowchart
+// Version: 1.0
+
+#import 'AEFlowchart.js'
+
+/*  call AEFlowchart main function with custom name and shape function  */
+createStep("InternalStorage", internalStorageShape, internalStorageFontColor);
+
+/*  draw internalStorage rectangle shape for given label  */
+function internalStorageShape(label)
+{
+  // create group shape
+  var parentGroup = [label parentGroup];
+  var subGroup = parentGroup.addLayerOfType("group");
+ 
+  var labelFrame = [label frame];
+  var subGroupFrame = [subGroup frame];
+  [subGroupFrame setWidth:[labelFrame width] + 60];
+  [subGroupFrame setHeight:[labelFrame height] + 40];
+  [subGroupFrame setMidX:[labelFrame midX] - 10];
+  [subGroupFrame setMidY:[labelFrame midY] - 5];
+  [subGroup setFrame: subGroupFrame];
+
+  // create background box and offset it down and right 
+  var shape = [[MSRectangleShape alloc] init];
+  shape.setName("Background Box");
+  var shapeGroup = shape.embedInShapeGroup();
+  [subGroup addLayers:[shapeGroup]];
+
+  // set frame
+  var subGroupFrame = [subGroup frame];
+  var shapeFrame = [shape frame];
+  [shapeFrame setX:[0]];
+  [shapeFrame setY:[0]];
+  [shapeFrame setWidth:[subGroupFrame width]];
+  [shapeFrame setHeight:[subGroupFrame height]];
+  [shapeGroup setFrame: shapeFrame];
+
+  // set style
+  var shapeStyle = [shapeGroup style];
+  var fills = [shapeStyle fills];
+  if([fills count] <= 0) [fills addNewStylePart];
+  var shapeFill = [shapeStyle fill];
+
+  // add gradient fill
+  [shapeFill setFillType: 1];
+  var gradient = [shapeFill gradient];
+  [gradient setColor:[MSColor colorWithSVGString:internalStorageColorStart] atIndex:0];
+  [gradient setColor:[MSColor colorWithSVGString:internalStorageColorEnd] atIndex:1];
+  
+  // add Horizontal Line Box
+  var horizBox = [[MSRectangleShape alloc] init];
+  horizBox.setName("Horizontal Box");
+  var horizBoxGroup = horizBox.embedInShapeGroup();
+  [subGroup addLayers:[horizBoxGroup]];
+
+  // set Frame
+  var horizBoxFrame = [horizBox frame];
+  [horizBoxFrame setX:0];
+  [horizBoxFrame setY:10];
+  [horizBoxFrame setWidth:[subGroupFrame width]];
+  [horizBoxFrame setHeight: 1];
+  [horizBoxGroup setFrame: horizBoxFrame];
+
+  // set style
+  var horizBoxStyle = [horizBoxGroup style];
+  var horizBoxFills = [horizBoxStyle fills];
+  if([horizBoxFills count] <= 0) [horizBoxFills addNewStylePart];
+  var horizBoxFill = [horizBoxStyle fill];
+
+  // add color fill
+  horizBoxFill.color = MSColor.colorWithSVGString(internalStorageFillColor);
+
+  // add Vertical Line Box
+  var vertBox = [[MSRectangleShape alloc] init];
+  vertBox.setName("Vertical Box");
+  var vertBoxGroup = vertBox.embedInShapeGroup();
+  [subGroup addLayers:[vertBoxGroup]];
+
+  // set Frame
+  var vertBoxFrame = [vertBox frame];
+  [vertBoxFrame setX:10];
+  [vertBoxFrame setY:0];
+  [vertBoxFrame setWidth:1];
+  [vertBoxFrame setHeight:[subGroupFrame height]];
+  [vertBoxGroup setFrame: vertBoxFrame];
+
+  // set style
+  var vertBoxStyle = [vertBoxGroup style];
+  var vertBoxFills = [vertBoxStyle fills];
+  if([vertBoxFills count] <= 0) [vertBoxFills addNewStylePart];
+  var vertBoxFill = [vertBoxStyle fill];
+
+  // add color fill
+  vertBoxFill.color = MSColor.colorWithSVGString(internalStorageFillColor);
+
+  // if shadow is true use default inner shadow
+  if (internalStorageInnerShadows) {
+    var innerShadows = [shapeStyle innerShadows];
+    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  }
+
+  return subGroup;
+
+}
