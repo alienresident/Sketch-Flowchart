@@ -24,7 +24,7 @@ var inputOutputInnerShadows = false;
 var inputOutputFontColor = labelFontColor;
 
 // internalStorage Variables
-var internalStorageColorStart = "#FF552A";
+var internalStorageColorStart = "#D0021B";
 var internalStorageColorEnd = internalStorageColorStart;
 var internalStorageInnerShadows = false;
 var internalStorageFontColor = labelFontColor;
