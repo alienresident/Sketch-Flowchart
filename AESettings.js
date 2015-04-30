@@ -12,44 +12,37 @@ var labelDropShadow = false;
 var connectLineColor = "#666766";
 
 // Decision Variables
-var decisionColorStart = "#FF552A";
-var decisionColorEnd = decisionColorStart; // 'Flat' Gradient
+var decisionColor = "#FF552A";
 var decisionInnerShadows = false;
 var decisionFontColor = labelFontColor;
 
 // inputOutput Variables
-var inputOutputColorStart = "#1C69D4";
-var inputOutputColorEnd = inputOutputColorStart;
+var inputOutputColor = "#1C69D4";
 var inputOutputInnerShadows = false;
 var inputOutputFontColor = labelFontColor;
 
 // internalStorage Variables
-var internalStorageColorStart = "#D0021B";
-var internalStorageColorEnd = internalStorageColorStart;
+var internalStorageColor = "#D0021B";
 var internalStorageInnerShadows = false;
 var internalStorageFontColor = labelFontColor;
-var internalStorageFillColor = "#FFFFFF";
-
-// manualInput Variables
-var manualInputColorStart = "#666766";
-var manualInputColorEnd = manualInputColorStart;
-var manualInputInnerShadows = false;
-var manualInputFontColor = labelFontColor;
+var internalStorageLineColor = "#FFFFFF";
 
 // LabelLine Variables
-var labelLineColorStart = "#FFFFFF";
-var labelLineColorEnd = labelLineColorStart; // 'Flat' Gradient
+var labelLineColor = "#FFFFFF";
 var labelLineInnerShadows = false;
 var labelLineFontColor = "#262626";
 
+// manualInput Variables
+var manualInputColor = "#666766";
+var manualInputInnerShadows = false;
+var manualInputFontColor = labelFontColor;
+
 // Process Variables
-var processColorStart = "#1C69D4";
-var processColorEnd = processColorStart;  // 'Flat' Gradient
+var processColor = "#1C69D4"; // 'Flat' Gradient
 var processInnerShadows = false;
 var processFontColor = labelFontColor;
 
 // startEnd Variables
-var startEndColorStart = "#1F72E4";
-var startEndColorEnd =  "#1A62C5";
+var startEndColor = "#1F72E4";
 var startEndInnerShadows = false;
 var startEndFontColor = labelFontColor;
