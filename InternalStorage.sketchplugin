@@ -2,9 +2,9 @@
 // Source: github.com/tadija/AEFlowchart
 // Version: 1.0
 
-#import 'AEFlowchart.js'
+@import 'AEFlowchart.js'
  
- var stepName = "Internal Storage";
+var stepName = "Internal Storage";
 
 /*  call AEFlowchart main function with custom name and shape function  */
 createStep(stepName, internalStorageShape, internalStorageFontColor);
@@ -27,7 +27,7 @@ function internalStorageShape(label)
   // create background box and offset it down and right 
   var shape = [[MSRectangleShape alloc] init];
   shape.setName("Background Box");
-  var shapeGroup = shape.embedInShapeGroup();
+  var shapeGroup = MSShapeGroup.shapeWithPath(shape);
   [subGroup addLayers:[shapeGroup]];
 
   // set frame
@@ -48,7 +48,7 @@ function internalStorageShape(label)
   // add Horizontal Line Box
   var horizBox = [[MSRectangleShape alloc] init];
   horizBox.setName("Horizontal Box");
-  var horizBoxGroup = horizBox.embedInShapeGroup();
+  var horizBoxGroup = MSShapeGroup.shapeWithPath(horizBox);
   [subGroup addLayers:[horizBoxGroup]];
 
   // set Frame
@@ -70,7 +70,7 @@ function internalStorageShape(label)
   // add Vertical Line Box
   var vertBox = [[MSRectangleShape alloc] init];
   vertBox.setName("Vertical Box");
-  var vertBoxGroup = vertBox.embedInShapeGroup();
+  var vertBoxGroup = MSShapeGroup.shapeWithPath(vertBox);
   [subGroup addLayers:[vertBoxGroup]];
 
   // set Frame

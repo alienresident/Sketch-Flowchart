@@ -2,9 +2,10 @@
 // Source: github.com/tadija/AEFlowchart
 // Version: 1.0
 
-#import 'AEFlowchart.js'
+@import 'AEFlowchart.js'
 
 var stepName = "Start/End";
+
 /*  call AEFlowchart main function with custom name and shape function  */
 createStep(stepName, startEndShape, startEndFontColor);
 
@@ -14,7 +15,7 @@ function startEndShape(label)
   // create shape
   var parentGroup = [label parentGroup];
   var shape = [[MSRectangleShape alloc] init];
-  var shapeGroup = shape.embedInShapeGroup();
+  var shapeGroup = MSShapeGroup.shapeWithPath(shape);
   [parentGroup addLayers:[shapeGroup]];
 
   // set frame

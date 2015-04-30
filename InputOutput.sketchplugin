@@ -2,9 +2,10 @@
 // Source: github.com/tadija/AEFlowchart
 // Version: 1.0
 
-#import 'AEFlowchart.js'
+@import 'AEFlowchart.js'
 
 var stepName = "Input Output";
+
 /*  call AEFlowchart main function with custom name and shape function  */
 createStep(stepName, inputOutputShape, inputOutputFontColor);
 
