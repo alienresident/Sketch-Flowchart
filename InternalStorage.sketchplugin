@@ -18,9 +18,9 @@ function internalStorageShape(label)
  
   var labelFrame = [label frame];
   var subGroupFrame = [subGroup frame];
-  [subGroupFrame setWidth:[labelFrame width] + 60];
-  [subGroupFrame setHeight:[labelFrame height] + 40];
-  [subGroupFrame setMidX:[labelFrame midX] - 10];
+  [subGroupFrame setWidth:[labelFrame width] + 50];
+  [subGroupFrame setHeight:[labelFrame height] + 30];
+  [subGroupFrame setMidX:[labelFrame midX] - 5];
   [subGroupFrame setMidY:[labelFrame midY] - 5];
   [subGroup setFrame: subGroupFrame];
 
