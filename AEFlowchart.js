@@ -113,3 +113,16 @@ function getNamesOfStyles() {
  	return styleNames;
 }
 
+/* Search Shared Style Index Postion in array of Layer Styles */
+function searchStyleInStyleNames(styleNames, styleName) {
+
+    for (var i=0; i<styleNames.length; i++) {
+
+        if (styleNames[i].match(styleName)) {
+        	// log("index postion: " + i);
+        	return i;
+        }
+    }
+    return -1;
+}
+
