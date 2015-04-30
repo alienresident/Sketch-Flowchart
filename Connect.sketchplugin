@@ -97,6 +97,16 @@ function drawOneConnection(twoSteps)
   var border = [lineShapeStyle border];
   [border setColor:[MSColor colorWithSVGString:connectLineColor]];
 
+  border.thickness = connectLineThickness;
+
+  // set arrows 
+  if(connectStartArrows) {
+    lineShape.firstLayer().setStartDecorationType(connectStartArrowsType);
+  }
+  if(connectEndArrows) {
+    lineShape.firstLayer().setEndDecorationType(connectEndArrowsType);
+  }
+
   // add line shape to connectionsGroup
   [connectionsGroup addLayers:[lineShape]];
 

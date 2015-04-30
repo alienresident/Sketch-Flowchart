@@ -10,6 +10,16 @@ var labelDropShadow = false;
 
 // Connect Variables
 var connectLineColor = "#666766";
+var connectLineThickness = 2;
+
+// connectArrowTypes 
+// -->  = 1
+// --|> = 2
+// --|  = 3
+var connectStartArrows = false;
+var connectStartArrowsType = 3;
+var connectEndArrows = true;
+var connectEndArrowsType = 2;
 
 // Decision Variables
 var decisionColor = "#FF552A";
