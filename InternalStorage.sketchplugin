@@ -1,11 +1,13 @@
-// Sketch Plugin: AEFlowchart - InternalStorage (ctrl shift i)
+// Sketch Plugin: AEFlowchart - "Internal Storage" (ctrl shift i)
 // Source: github.com/tadija/AEFlowchart
 // Version: 1.0
 
 #import 'AEFlowchart.js'
+ 
+ var stepName = "Internal Storage";
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep("InternalStorage", internalStorageShape, internalStorageFontColor);
+createStep(stepName, internalStorageShape, internalStorageFontColor);
 
 /*  draw internalStorage rectangle shape for given label  */
 function internalStorageShape(label)

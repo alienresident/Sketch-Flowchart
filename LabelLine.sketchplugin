@@ -1,11 +1,13 @@
-// Sketch Plugin: AEFlowchart - Process (ctrl shift l)
+// Sketch Plugin: AEFlowchart - "Label Line" (ctrl shift l)
 // Source: github.com/tadija/AEFlowchart
 // Version: 1.0
 
 #import 'AEFlowchart.js'
 
+var stepName = "Label Line";
+
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep("LabelLine", labelLineShape, labelLineFontColor);
+createStep(stepName, labelLineShape, labelLineFontColor);
 
 /*  draw startEnd rectangle shape for given label  */
 function labelLineShape(label)

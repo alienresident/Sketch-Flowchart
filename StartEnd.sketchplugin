@@ -1,11 +1,12 @@
-// Sketch Plugin: AEFlowchart - StartEnd (ctrl shift s)
+// Sketch Plugin: AEFlowchart - "Start End" (ctrl shift s)
 // Source: github.com/tadija/AEFlowchart
 // Version: 1.0
 
 #import 'AEFlowchart.js'
 
+var stepName = "Start/End";
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep("StartEnd", startEndShape, startEndFontColor);
+createStep(stepName, startEndShape, startEndFontColor);
 
 /*  draw start-end rounded rectangle shape for given label  */
 function startEndShape(label)

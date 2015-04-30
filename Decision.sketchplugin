@@ -4,8 +4,10 @@
 
 #import 'AEFlowchart.js'
 
+var stepName = "Decision";
+
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep("Decision", decisionShape, decisionFontColor);
+createStep(stepName, decisionShape, decisionFontColor);
 
 /*  draw decision diamond shape for given label  */
 function decisionShape(label)

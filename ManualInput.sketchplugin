@@ -1,13 +1,15 @@
-// Sketch Plugin: AEFlowchart - ManualInput (ctrl shift m)
+// Sketch Plugin: AEFlowchart - "Manual Input" (ctrl shift m)
 // Source: github.com/tadija/AEFlowchart
 // Version: 1.0
 
 #import 'AEFlowchart.js'
 
-/*  call AEFlowchart main function with custom name and shape function  */
-createStep("ManualInput", manualInputShape, manualInputFontColor);
+var stepName = "Manual Input";
 
-/*  draw manualInput shape for given label  */
+/*  call AEFlowchart main function with custom name and shape function  */
+createStep(stepName, manualInputShape, manualInputFontColor);
+
+/*  draw Manual Input shape for given label  */
 function manualInputShape(label)
 {
   // get label size

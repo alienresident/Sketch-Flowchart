@@ -4,8 +4,10 @@
 
 #import 'AEFlowchart.js'
 
+var stepName = "Process";
+
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep("Process", processShape, processFontColor);
+createStep(stepName, processShape, processFontColor);
 
 /*  draw process rectangle shape for given label  */
 function processShape(label)
