@@ -28,21 +28,9 @@ function labelLineShape(label)
   [shapeGroup setFrame: shapeFrame];
 
   // set style
-  var shapeStyle = [shapeGroup style];
-  var fills = [shapeStyle fills];
-  if([fills count] <= 0) [fills addNewStylePart];
-  var shapeFill = [shapeStyle fill];
-
-  // add gradient fill
-  [shapeFill setFillType: 1];
-  var gradient = [shapeFill gradient];
-  [gradient setColor:[MSColor colorWithSVGString:labelLineColorStart] atIndex:0];
-  [gradient setColor:[MSColor colorWithSVGString:labelLineColorEnd] atIndex:1];
-
-  // if shadow is true use default inner shadow
-  if (labelLineInnerShadows) {
-    var innerShadows = [shapeStyle innerShadows];
-    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+    if(doesStyleExist(stepName, shape) == false) {
+    // style doesn't exist so create it
+    createLayerStyle(stepName, shape, labelLineColor, labelLineShadows)
   }
 
   return shapeGroup;

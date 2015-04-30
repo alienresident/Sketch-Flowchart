@@ -27,21 +27,9 @@ function startEndShape(label)
   [shapeGroup setFrame: shapeFrame];
 
   // set style
-  var shapeStyle = [shapeGroup style];
-  var fills = [shapeStyle fills];
-  if([fills count] <= 0) [fills addNewStylePart];
-  var shapeFill = [shapeStyle fill];
-
-  // add gradient fill
-  [shapeFill setFillType: 1];
-  var gradient = [shapeFill gradient];
-  [gradient setColor:[MSColor colorWithSVGString:startEndColorStart] atIndex:0];
-  [gradient setColor:[MSColor colorWithSVGString:startEndColorEnd] atIndex:1];
-
-  // if shadow is true use default inner shadow
-  if (startEndInnerShadows) {
-    var innerShadows = [shapeStyle innerShadows];
-    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  if(doesStyleExist(stepName, shapeGroup) == false) {
+    // style doesn't exist so create it
+    createLayerStyle(stepName, shapeGroup, startEndColor, startEndInnerShadows)
   }
 
   // round corners (calculate pill radius)
@@ -51,6 +39,7 @@ function startEndShape(label)
   } else {
     radius = [shapeFrame width] / 2;
   }
+  
   var firstObject = [[shapeGroup layers] firstObject];
   [firstObject setCornerRadiusFloat:Math.round(radius)];
 

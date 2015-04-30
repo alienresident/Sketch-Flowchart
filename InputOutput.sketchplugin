@@ -37,22 +37,9 @@ function inputOutputShape(label)
   // create shape
   var shape = [MSShapeGroup shapeWithBezierPath: shapePath];
 
-  // set style
-  var shapeStyle = [shape style];
-  var fills = [shapeStyle fills];
-  if([fills count] <= 0) [fills addNewStylePart];
-  var shapeFill = [shapeStyle fill];
-
-  // add gradient fill
-  [shapeFill setFillType: 1];
-  var gradient = [shapeFill gradient];
-  [gradient setColor:[MSColor colorWithSVGString:inputOutputColorStart] atIndex:0];
-  [gradient setColor:[MSColor colorWithSVGString:inputOutputColorEnd] atIndex:1];
-
-  // if shadow is true use default inner shadow
-  if (inputOutputInnerShadows) {
-    var innerShadows = [shapeStyle innerShadows];
-    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  if(doesStyleExist(stepName, shape) == false) {
+    // style doesn't exist so create it
+    createLayerStyle(stepName, shape, inputOutputColor, inputOutputInnerShadows)
   }
 
   return shape;

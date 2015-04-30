@@ -39,18 +39,12 @@ function internalStorageShape(label)
   [shapeFrame setHeight:[subGroupFrame height]];
   [shapeGroup setFrame: shapeFrame];
 
-  // set style
-  var shapeStyle = [shapeGroup style];
-  var fills = [shapeStyle fills];
-  if([fills count] <= 0) [fills addNewStylePart];
-  var shapeFill = [shapeStyle fill];
+  // set style Background Box Shape
+  if(doesStyleExist(stepName, shapeGroup) == false) {
+    // style doesn't exist so create it
+    createLayerStyle(stepName, shapeGroup, internalStorageColor, internalStorageInnerShadows)
+  }
 
-  // add gradient fill
-  [shapeFill setFillType: 1];
-  var gradient = [shapeFill gradient];
-  [gradient setColor:[MSColor colorWithSVGString:internalStorageColorStart] atIndex:0];
-  [gradient setColor:[MSColor colorWithSVGString:internalStorageColorEnd] atIndex:1];
-  
   // add Horizontal Line Box
   var horizBox = [[MSRectangleShape alloc] init];
   horizBox.setName("Horizontal Box");
@@ -65,14 +59,13 @@ function internalStorageShape(label)
   [horizBoxFrame setHeight: 1];
   [horizBoxGroup setFrame: horizBoxFrame];
 
-  // set style
-  var horizBoxStyle = [horizBoxGroup style];
-  var horizBoxFills = [horizBoxStyle fills];
-  if([horizBoxFills count] <= 0) [horizBoxFills addNewStylePart];
-  var horizBoxFill = [horizBoxStyle fill];
+  var stepNameLine = stepName + " Line";
 
-  // add color fill
-  horizBoxFill.color = MSColor.colorWithSVGString(internalStorageFillColor);
+  // set style Horizontal Box
+  if(doesStyleExist(stepNameLine, horizBoxGroup) == false) {
+    // style doesn't exist so create it
+    createLayerStyle(stepNameLine, horizBoxGroup, internalStorageLineColor, internalStorageInnerShadows)
+  }
 
   // add Vertical Line Box
   var vertBox = [[MSRectangleShape alloc] init];
@@ -88,19 +81,10 @@ function internalStorageShape(label)
   [vertBoxFrame setHeight:[subGroupFrame height]];
   [vertBoxGroup setFrame: vertBoxFrame];
 
-  // set style
-  var vertBoxStyle = [vertBoxGroup style];
-  var vertBoxFills = [vertBoxStyle fills];
-  if([vertBoxFills count] <= 0) [vertBoxFills addNewStylePart];
-  var vertBoxFill = [vertBoxStyle fill];
-
-  // add color fill
-  vertBoxFill.color = MSColor.colorWithSVGString(internalStorageFillColor);
-
-  // if shadow is true use default inner shadow
-  if (internalStorageInnerShadows) {
-    var innerShadows = [shapeStyle innerShadows];
-    if([innerShadows count] <= 0) [innerShadows addNewStylePart];
+  // set style Vertical Box
+  if(doesStyleExist(stepNameLine, vertBoxGroup) == false) {
+    // style doesn't exist so create it
+    createLayerStyle(stepNameLine, vertBoxGroup, internalStorageLineColor, internalStorageInnerShadows)
   }
 
   return subGroup;
