@@ -126,3 +126,28 @@ function searchStyleInStyleNames(styleNames, styleName) {
     return -1;
 }
 
+function createLayerStyle(stepName, shape, color, innerShadows) {
+
+	// Get shared Layer styles container
+	var sharedStyles=doc.documentData().layerStyles();
+
+	// Create custom style programmatically.
+    var style=MSStyle.alloc().init();
+    var style = shape.style();
+
+    // Setup fill
+    var fill=style.fills().addNewStylePart();
+    fill.color = MSColor.colorWithSVGString(color);
+
+    // Setup inner shadows with default settings.
+    if (innerShadows) {
+      style.innerShadows().addNewStylePart();
+    }
+
+    // Add new styles to shared styles
+    sharedStyles.addSharedStyleWithName_firstInstance(stepName, shape.style());
+
+  	// Refresh inspector to reflect changes.
+  	doc.reloadInspector();
+} 
+
