@@ -151,3 +151,20 @@ function createLayerStyle(stepName, shape, color, innerShadows) {
   	doc.reloadInspector();
 } 
 
+function doesStyleExist(stepName, shape) {
+
+	var styleNames = getNamesOfStyles();
+
+    var styleNameIndex = searchStyleInStyleNames(styleNames, stepName);
+
+    if(styleNameIndex != -1) {
+    	// log("style already exists")
+    	var stepStyle=doc.documentData().layerStyles().objects().objectAtIndex(styleNameIndex);
+    	shape.setStyle(stepStyle.newInstance());
+    	// Refresh inspector to reflect changes.
+  		doc.reloadInspector();
+    } else {
+    	// log("create new style")
+    	return false;
+    }
+}
