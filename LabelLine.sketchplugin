@@ -9,7 +9,7 @@ var stepName = "Label Line";
 /*  call AEFlowchart main function with custom name and shape function  */
 createStep(stepName, labelLineShape, labelLineFontColor);
 
-/*  draw startEnd rectangle shape for given label  */
+/*  draw Label Background rectangle shape for given label  */
 function labelLineShape(label)
 {
   // create shape
@@ -28,9 +28,9 @@ function labelLineShape(label)
   [shapeGroup setFrame: shapeFrame];
 
   // set style
-    if(doesStyleExist(stepName, shape) == false) {
+  if(doesStyleExist(stepName, shapeGroup) == false) {
     // style doesn't exist so create it
-    createLayerStyle(stepName, shape, labelLineColor, labelLineShadows)
+    createLayerStyle(stepName, shapeGroup, labelLineColor, labelLineInnerShadows)
   }
 
   return shapeGroup;
