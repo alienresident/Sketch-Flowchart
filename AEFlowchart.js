@@ -96,3 +96,20 @@ function groupStepLayers(stepName, label, shape)
 	// select new group 
 	[newGroup setIsSelected:true];
 }
+
+function getNamesOfStyles() {
+
+	// Load Layer Style objects 
+	var styles = [[[doc documentData] layerStyles] objects];
+
+	// Create an empty array to put the LayerStyles names
+	var styleNames = [];
+
+	for (var i=0; i < [styles count]; i++) {
+		var style = [styles objectAtIndex:i];
+  		styleNames.push([style name]);
+	}
+
+ 	return styleNames;
+}
+
