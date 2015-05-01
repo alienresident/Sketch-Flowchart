@@ -39,9 +39,12 @@ function internalStorageShape(label)
   [shapeFrame setHeight:[subGroupFrame height]];
   [shapeGroup setFrame: shapeFrame];
 
+  // Style Setup
+  styleType = "layerStyles";
+
   // set style Background Box Shape
-  if(doesStyleExist(stepName, shapeGroup) == false) {
-    // style doesn't exist so create it
+  if(doesStyleExist(stepName, shapeGroup, styleType) == false) {
+    // log(stepName + " style doesn't exist so create it");
     createLayerStyle(stepName, shapeGroup, internalStorageColor, internalStorageInnerShadows)
   }
 
@@ -62,8 +65,8 @@ function internalStorageShape(label)
   var stepNameLine = stepName + " Line";
 
   // set style Horizontal Box
-  if(doesStyleExist(stepNameLine, horizBoxGroup) == false) {
-    // style doesn't exist so create it
+  if(doesStyleExist(stepNameLine, horizBoxGroup, styleType) == false) {
+    // log(stepName + " style doesn't exist so create it");
     createLayerStyle(stepNameLine, horizBoxGroup, internalStorageLineColor, internalStorageInnerShadows)
   }
 
@@ -82,8 +85,8 @@ function internalStorageShape(label)
   [vertBoxGroup setFrame: vertBoxFrame];
 
   // set style Vertical Box
-  if(doesStyleExist(stepNameLine, vertBoxGroup) == false) {
-    // style doesn't exist so create it
+  if(doesStyleExist(stepNameLine, vertBoxGroup, styleType) == false) {
+    // log(stepName + " style doesn't exist so create it");
     createLayerStyle(stepNameLine, vertBoxGroup, internalStorageLineColor, internalStorageInnerShadows)
   }
 

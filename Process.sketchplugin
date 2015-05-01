@@ -28,8 +28,10 @@ function processShape(label)
   [shapeGroup setFrame: shapeFrame];
 
   // set style
-  if(doesStyleExist(stepName, shapeGroup) == false) {
-    // style doesn't exist so create it
+  styleType = "layerStyles";
+
+  if(doesStyleExist(stepName, shapeGroup, styleType) == false) {
+    // log(stepName + " style doesn't exist so create it");
     createLayerStyle(stepName, shapeGroup, processColor, processInnerShadows)
   }
 

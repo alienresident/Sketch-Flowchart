@@ -92,9 +92,10 @@ function drawOneConnection(twoSteps)
   [lineShape setBezierPath: lineBezierPath];
   [lineShape setName:[firstStep name] + " -> " + [secondStep name]];
 
+  styleType = "layerStyles";
 
-  if(doesStyleExist(stepName, lineShape) == false) {
-    // style doesn't exist so create it
+  if(doesStyleExist(stepName, lineShape, styleType) == false) {
+    // log(stepName + " style doesn't exist so create it");
     createLineStyle(stepName, lineShape, connectLineColor, connectLineThickness, connectStartArrow, connectStartArrowType, connectEndArrow, connectEndArrowType);
   }
 

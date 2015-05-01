@@ -39,8 +39,10 @@ function manualInputShape(label)
   var shape = [MSShapeGroup shapeWithBezierPath: shapePath];
 
   // set style
-  if(doesStyleExist(stepName, shape) == false) {
-    // style doesn't exist so create it
+  styleType = "layerStyles";
+
+  if(doesStyleExist(stepName, shape, styleType) == false) {
+    // log(stepName + " style doesn't exist so create it");
     createLayerStyle(stepName, shape, manualInputColor, manualInputInnerShadows)
   }
 

@@ -5,7 +5,6 @@
 @import 'AEFlowchart.js'
 
 var stepName = "Input Output";
-
 /*  call AEFlowchart main function with custom name and shape function  */
 createStep(stepName, inputOutputShape, inputOutputFontColor);
 
@@ -38,8 +37,10 @@ function inputOutputShape(label)
   // create shape
   var shape = [MSShapeGroup shapeWithBezierPath: shapePath];
 
-  if(doesStyleExist(stepName, shape) == false) {
-    // style doesn't exist so create it
+  styleType = "layerStyles";
+  
+  if(doesStyleExist(stepName, shape, styleType) == false) {
+    // log(stepName + " style doesn't exist so create it");
     createLayerStyle(stepName, shape, inputOutputColor, inputOutputInnerShadows)
   }
 

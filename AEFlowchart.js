@@ -97,10 +97,10 @@ function groupStepLayers(stepName, label, shape)
 	[newGroup setIsSelected:true];
 }
 
-function getNamesOfStyles() {
+function getNamesOfStyles(typeOfStyle) {
 
-	// Load Layer Style objects 
-	var styles = [[[doc documentData] layerStyles] objects];
+	// Load  Style objects 
+	var styles = typeOfStyle.objects();
 
 	// Create an empty array to put the LayerStyles names
 	var styleNames = [];
@@ -124,6 +124,33 @@ function searchStyleInStyleNames(styleNames, styleName) {
         }
     }
     return -1;
+}
+
+function doesStyleExist(stepName, shape, styleType) {
+
+	if(styleType == "layerStyles") {
+		typeOfStyle = doc.documentData().layerStyles();
+	} else if(styleType == "layerTextStyles") {
+		typeOfStyle = doc.documentData().layerTextStyles();
+	} else {
+		log("Style Type Error! What is this?: " + styleType)
+	}
+
+	var styleNames = getNamesOfStyles(typeOfStyle);
+	//log(styleNames);
+
+    var styleNameIndex = searchStyleInStyleNames(styleNames, stepName);
+
+    if(styleNameIndex != -1) {
+    	// log("style already exists")
+    	var stepStyle=typeOfStyle.objects().objectAtIndex(styleNameIndex);
+    	shape.setStyle(stepStyle.newInstance());
+    	// Refresh inspector to reflect changes.
+  		doc.reloadInspector();
+    } else {
+    	// log("create new style")
+    	return false;
+    }
 }
 
 function createLayerStyle(stepName, shape, color, innerShadows) {
@@ -184,20 +211,6 @@ function createLineStyle(stepName, shape, borderColor, borderThickness, startArr
   	doc.reloadInspector();
 }
 
-function doesStyleExist(stepName, shape) {
 
-	var styleNames = getNamesOfStyles();
 
-    var styleNameIndex = searchStyleInStyleNames(styleNames, stepName);
 
-    if(styleNameIndex != -1) {
-    	// log("style already exists")
-    	var stepStyle=doc.documentData().layerStyles().objects().objectAtIndex(styleNameIndex);
-    	shape.setStyle(stepStyle.newInstance());
-    	// Refresh inspector to reflect changes.
-  		doc.reloadInspector();
-    } else {
-    	// log("create new style")
-    	return false;
-    }
-}
