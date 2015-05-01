@@ -4,6 +4,8 @@
 
 @import 'AEFlowchart.js'
 
+var stepName = "Connector";
+
 /*  call AEFlowchart main function with custom name and lineShape function  */
 connectSteps(drawAllConnections);
 
@@ -90,21 +92,10 @@ function drawOneConnection(twoSteps)
   [lineShape setBezierPath: lineBezierPath];
   [lineShape setName:[firstStep name] + " -> " + [secondStep name]];
 
-  // add border
-  var lineShapeStyle = [lineShape style];
-  var borders = [lineShapeStyle borders];
-  if([borders count] <= 0) [borders addNewStylePart];
-  var border = [lineShapeStyle border];
-  [border setColor:[MSColor colorWithSVGString:connectLineColor]];
 
-  border.thickness = connectLineThickness;
-
-  // set arrows 
-  if(connectStartArrows) {
-    lineShape.firstLayer().setStartDecorationType(connectStartArrowsType);
-  }
-  if(connectEndArrows) {
-    lineShape.firstLayer().setEndDecorationType(connectEndArrowsType);
+  if(doesStyleExist(stepName, lineShape) == false) {
+    // style doesn't exist so create it
+    createLineStyle(stepName, lineShape, connectLineColor, connectLineThickness, connectStartArrow, connectStartArrowType, connectEndArrow, connectEndArrowType);
   }
 
   // add line shape to connectionsGroup
