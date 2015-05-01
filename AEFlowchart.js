@@ -50,7 +50,6 @@ function styleStepTitle(label, fontColor)
 	var currentMidX = [currentFrame midX];
 	var currentMidY = [currentFrame midY];
 
-	// label settings
 	[label setFontPostscriptName:labelFontName];
 	[label setFontSize:labelFontSize];
 	[label setTextColor:[MSColor colorWithSVGString:fontColor]];
@@ -178,7 +177,7 @@ function createLayerStyle(stepName, shape, color, innerShadows) {
   	doc.reloadInspector();
 } 
 
-function createLineStyle(stepName, shape, borderColor, borderThickness, startArrow, startArrowType, endArrow, endArrowType) {
+function createBorderStyle(stepName, shape, borderColor, borderThickness, startArrow, startArrowType, endArrow, endArrowType) {
 
 	// Get shared Layer styles container
 	var sharedStyles=doc.documentData().layerStyles();
