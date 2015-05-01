@@ -151,6 +151,39 @@ function createLayerStyle(stepName, shape, color, innerShadows) {
   	doc.reloadInspector();
 } 
 
+function createLineStyle(stepName, shape, borderColor, borderThickness, startArrow, startArrowType, endArrow, endArrowType) {
+
+	// Get shared Layer styles container
+	var sharedStyles=doc.documentData().layerStyles();
+
+	// Create custom style programmatically.
+    var style=MSStyle.alloc().init();
+    var style = shape.style();
+
+	// add border
+	var shapeStyle = [shape style];
+	var borders = [shapeStyle borders];
+	if([borders count] <= 0) [borders addNewStylePart];
+	var border = [shapeStyle border];
+	[border setColor:[MSColor colorWithSVGString:borderColor]];
+
+	border.thickness = borderThickness;
+
+	// set arrows 
+	if(startArrow) {
+		shape.firstLayer().setStartDecorationType(startArrowType);
+	}
+	if(endArrow) {
+		shape.firstLayer().setEndDecorationType(endArrowType);
+	}
+
+    // Add new styles to shared styles
+    sharedStyles.addSharedStyleWithName_firstInstance(stepName, shape.style());
+
+  	// Refresh inspector to reflect changes.
+  	doc.reloadInspector();
+}
+
 function doesStyleExist(stepName, shape) {
 
 	var styleNames = getNamesOfStyles();
