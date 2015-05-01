@@ -16,10 +16,10 @@ var connectLineThickness = 2;
 // -->  = 1
 // --|> = 2
 // --|  = 3
-var connectStartArrows = false;
-var connectStartArrowsType = 3;
-var connectEndArrows = true;
-var connectEndArrowsType = 2;
+var connectStartArrow = false;
+var connectStartArrowType = 3;
+var connectEndArrow = true;
+var connectEndArrowType = 2;
 
 // Decision Variables
 var decisionColor = "#FF552A";
