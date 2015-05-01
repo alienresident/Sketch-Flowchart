@@ -7,6 +7,7 @@ var labelFontName = "Helvetica";
 var labelFontSize = 12;
 var labelFontColor = "#FFFFFF";
 var labelDropShadow = false;
+var labelTextAlignment = 2; // center
 
 // Connect Variables
 var connectLineColor = "#666766";
