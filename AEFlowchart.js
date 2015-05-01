@@ -50,10 +50,21 @@ function styleStepTitle(label, fontColor)
 	var currentMidX = [currentFrame midX];
 	var currentMidY = [currentFrame midY];
 
-	[label setFontPostscriptName:labelFontName];
-	[label setFontSize:labelFontSize];
-	[label setTextColor:[MSColor colorWithSVGString:fontColor]];
-	[label setTextAlignment:2]; // center
+	labelName = "Label Text Style";
+
+	// Is the label color different from the default? 
+	// Currently Font Color is the only thing that can be customized from the default
+	if((labelFontColor) != (fontColor)) {
+		// log("color is "+ fontColor + " not " + labelFontColor);
+		labelName = stepName + " Text Style";
+	}
+
+	styleType = "layerTextStyles";
+
+  	if(doesStyleExist(labelName, label, styleType) == false) {
+    	// log(labelName + " style doesn't exist so create it");
+    	createTextStyle(labelName, label, labelFontName, labelFontSize, fontColor, labelTextAlignment, labelDropShadow);
+	}
 
 	// restore label position
 	var newFrame = [label frame];
@@ -210,6 +221,26 @@ function createBorderStyle(stepName, shape, borderColor, borderThickness, startA
   	doc.reloadInspector();
 }
 
+function createTextStyle(labelName, label, labelFontName, labelFontSize, labelFontColor, labelTextAlignment, labelDropShadow) {
 
+	// Get shared Layer styles container
+	var sharedStyles=doc.documentData().layerTextStyles();
 
+	// label settings
+	[label setFontPostscriptName:labelFontName];
+	[label setFontSize:labelFontSize];
+	[label setTextColor:[MSColor colorWithSVGString:labelFontColor]];
+	[label setTextAlignment:labelTextAlignment];
 
+	if (labelDropShadow) {
+		// add default shadow
+		var shadows = [[label style] shadows];
+		if([shadows count] <= 0) [shadows addNewStylePart];
+	}
+
+    // Add new styles to shared styles
+    sharedStyles.addSharedStyleWithName_firstInstance(labelName, label.style());
+
+  	// Refresh inspector to reflect changes.
+  	doc.reloadInspector();
+}
