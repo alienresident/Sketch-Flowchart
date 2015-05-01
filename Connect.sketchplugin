@@ -96,7 +96,7 @@ function drawOneConnection(twoSteps)
 
   if(doesStyleExist(stepName, lineShape, styleType) == false) {
     // log(stepName + " style doesn't exist so create it");
-    createLineStyle(stepName, lineShape, connectLineColor, connectLineThickness, connectStartArrow, connectStartArrowType, connectEndArrow, connectEndArrowType);
+    createBorderStyle(stepName, lineShape, connectLineColor, connectLineThickness, connectStartArrow, connectStartArrowType, connectEndArrow, connectEndArrowType);
   }
 
   // add line shape to connectionsGroup
