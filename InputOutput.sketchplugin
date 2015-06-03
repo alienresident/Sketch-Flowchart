@@ -6,7 +6,7 @@
 
 var stepName = "Input Output";
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep(stepName, inputOutputShape, inputOutputFontColor);
+createStep(stepName, inputOutputShape);
 
 /*  draw input-output parallelogram shape for given label  */
 function inputOutputShape(label)

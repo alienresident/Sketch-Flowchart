@@ -7,7 +7,7 @@
 var stepName = "Internal Storage";
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep(stepName, internalStorageShape, internalStorageFontColor);
+createStep(stepName, internalStorageShape);
 
 /*  draw internalStorage rectangle shape for given label  */
 function internalStorageShape(label)

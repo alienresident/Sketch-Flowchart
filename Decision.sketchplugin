@@ -7,7 +7,7 @@
 var stepName = "Decision";
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep(stepName, decisionShape, decisionFontColor);
+createStep(stepName, decisionShape);
 
 /*  draw decision diamond shape for given label  */
 function decisionShape(label)

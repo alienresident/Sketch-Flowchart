@@ -7,7 +7,7 @@
 var stepName = "Manual Input";
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep(stepName, manualInputShape, manualInputFontColor);
+createStep(stepName, manualInputShape);
 
 /*  draw Manual Input shape for given label  */
 function manualInputShape(label)

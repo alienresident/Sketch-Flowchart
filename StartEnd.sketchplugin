@@ -7,7 +7,7 @@
 var stepName = "Start/End";
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep(stepName, startEndShape, startEndFontColor);
+createStep(stepName, startEndShape);
 
 /*  draw start-end rounded rectangle shape for given label  */
 function startEndShape(label)

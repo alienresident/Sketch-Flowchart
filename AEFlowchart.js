@@ -9,6 +9,10 @@
 		- drawShape should be method which returns some shape for the given label	*/
 function createStep(stepName, drawShape, fontColor)
 {
+
+	if (typeof fontColor === 'undefined') {
+		fontColor = labelFontColor;
+	}
 	if([selection count] == 0) {
 		[doc showMessage:"Oops, you have to select some text layer"];
 	}

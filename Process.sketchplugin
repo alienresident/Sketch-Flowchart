@@ -7,7 +7,7 @@
 var stepName = "Process";
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep(stepName, processShape, processFontColor);
+createStep(stepName, processShape);
 
 /*  draw process rectangle shape for given label  */
 function processShape(label)
