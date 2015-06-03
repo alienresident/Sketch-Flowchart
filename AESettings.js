@@ -8,6 +8,7 @@ var labelFontSize = 12;
 var labelFontColor = "#FFFFFF";
 var labelDropShadow = false;
 var labelTextAlignment = 2; // center
+var labelConvertCase = false;
 
 // Connect Variables
 var connectLineColor = "#666766";
@@ -39,6 +40,7 @@ var internalStorageLineColor = "#FFFFFF";
 var labelLineColor = "#FFFFFF";
 var labelLineInnerShadows = false;
 var labelLineFontColor = "#262626";
+var labelLineConvertCase = true;
 
 // manualInput Variables
 var manualInputColor = "#666766";

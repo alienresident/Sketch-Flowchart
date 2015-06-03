@@ -7,16 +7,22 @@
 /*	this is the method which should be called from AEFlowchart plugins
 		- elementName should be string which will be used for items naming
 		- drawShape should be method which returns some shape for the given label	*/
-function createStep(stepName, drawShape, fontColor)
+function createStep(stepName, drawShape, fontColor, convertCase)
 {
 
 	if (typeof fontColor === 'undefined') {
 		fontColor = labelFontColor;
 	}
+
+	if (typeof convertCase === 'undefined') {
+		convertCase = labelConvertCase;
+	}
+
 	if([selection count] == 0) {
 		[doc showMessage:"Oops, you have to select some text layer"];
 	}
 	else {
+		
 		// iterate selected items
 		var loop = [selection objectEnumerator];
 		while (label = [loop nextObject]) {
@@ -24,6 +30,11 @@ function createStep(stepName, drawShape, fontColor)
 			// create flowchart shapes from text
 			if ([label class] === MSTextLayer) {
 
+				if(convertCase) {
+					var new_text = [label stringValue].toUpperCase();
+					[label setStringValue:new_text]
+				}
+				
 				styleStepTitle(label, fontColor);
 				var shape = drawShape(label);
 				groupStepLayers(stepName, label, shape);

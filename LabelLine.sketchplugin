@@ -7,7 +7,7 @@
 var stepName = "Label Line";
 
 /*  call AEFlowchart main function with custom name and shape function  */
-createStep(stepName, labelLineShape, labelLineFontColor);
+createStep(stepName, labelLineShape, labelLineFontColor, labelLineConvertCase);
 
 /*  draw Label Background rectangle shape for given label  */
 function labelLineShape(label)
