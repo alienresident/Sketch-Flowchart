@@ -1,7 +1,7 @@
 #Sketch Flowchart
-This a plugin to quicklycreate flowcharts in Sketch. 
+This a plugin to quickly create flowcharts in Sketch. 
 
-This project is based on [AEFlowchart](https://github.com/tadija/AEFlowchart) but has a bunch of new features.
+This project is based on [AEFlowchart](https://github.com/tadija/AEFlowchart) but has a bunch of new features: **Configurations**, **New Symbols**, and **Layer Styles** and **Text Styles**.
 
 ![Sketch Flowchart](http://alienresident.net/demo/sketch-flowchart/sketch-flowchart.gif)
 
