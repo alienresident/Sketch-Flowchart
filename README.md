@@ -5,6 +5,19 @@ This project is based on [AEFlowchart](https://github.com/tadija/AEFlowchart) bu
 
 ![Sketch Flowchart](http://alienresident.net/demo/sketch-flowchart/sketch-flowchart.gif)
 
+## Symbols
+
+| Symbol   	   | Shortcut | Shape   | Color   |
+|:------------|:----------|:--------|:--------|
+| Decision    | ^⇧ + D    | Diamond | #FF552A |
+| Input Output | ^⇧ + O    | Parallelogram | #1C69D4 |
+| Internal Storage | ^⇧ + I  | Rectangle with Cross | #D0021B |
+| Manual Input | ^⇧ + M  | Trapezoid | #666766 |
+| Process | ^⇧ + P  | Rectangle | #1C69D4 |
+| Start/End | ^⇧ + S  | Rounded Rectangle | #1F72E4 |
+
+![Sketch Flowchart](http://alienresident.net/demo/sketch-flowchart/sketch-flowchart-menu.png)
+
 ### Here's what changed from AEFlowchart:
 #### Configurations
 * added color variables to a config file for the all flow chart symbols
