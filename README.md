@@ -1,3 +1,9 @@
+### This plugin is currently BROKEN! 
+
+
+*It last worked properly in Sketch 3.4.x I haven't had time to updated it to reflect the API changes in Sketch. I have plans to rewrite it and add a UI.*
+
+
 #Sketch Flowchart
 This a plugin to quickly create [flowcharts](https://en.wikipedia.org/wiki/Flowchart) in [Sketch](http://bohemiancoding.com/sketch/). 
 
@@ -45,4 +51,5 @@ The symbol shape creates a shared layer style when you first create it. The Labe
 * Symbols of the same type can be altered in unison in the GUI. 
 * The script checks to see if the symbol's Layer Style exists and reuses it if it does.
 * Added similar functionality for Label Text Style
+
 
