@@ -4,7 +4,7 @@
 *It last worked properly in Sketch 3.4.x I haven't had time to updated it to reflect the API changes in Sketch. I have plans to rewrite it and add a UI.*
 
 
-#Sketch Flowchart
+# Sketch Flowchart
 This a plugin to quickly create [flowcharts](https://en.wikipedia.org/wiki/Flowchart) in [Sketch](http://bohemiancoding.com/sketch/). 
 
 This project is based on [AEFlowchart](https://github.com/tadija/AEFlowchart) but has a bunch of new features: **Configurations**, **New Symbols**, and **Layer Styles** and **Text Styles**.
